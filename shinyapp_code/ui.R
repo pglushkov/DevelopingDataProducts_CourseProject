@@ -10,8 +10,8 @@ shinyUI(
 			found in dozens of technical applications. In this project we assume that user is familiar with the concept
 			and provide as simple means to just visualize the process. Selection between two normal distributions, one
 			of which is associated with H0 and the other one with H1, is assumed. Choise to accept or
-			reject the H0 is done based on a simple threshold - if random variable value is bigger the the threshold,
-			then H0 is rejected. Corresponding Type-1 (false-positive) and Type-2 (false-negative) errors are vizualized
+			reject the H0 is done based on a simple threshold - if random variable value is bigger then the threshold -
+			H0 is rejected. Corresponding Type-1 (false-positive) and Type-2 (false-negative) errors are vizualized
 			along with distributions for better presentation of results. A set of associated utility characteristics are
 			calculated and presented as well. In such manner, one can play around with certain parameters and see the
 			results of it in an interactive manner.'),
@@ -22,8 +22,9 @@ shinyUI(
 			p('- result of simulation will be presented on the right panel of the web-page'),
 			p('Unfortunately UI is not perfect and some unlucky selection of parameters may lead to numerical issues. If
 			such situation is met - try to make sure that:'),
-			p('- distributions do overlap'),
+			p('- distributions DO overlap'),
 			p('- detection threshold lies between mean values of H0 and H1'),
+			p('- if nothing helps - restart the page, default parameters will be used on restart'),
 
 			h3('Specify detection threshold'),
 			#numericInput( 'thr', 'Detection Threshold', 2, min = -9, max = 19, step = 0.1 ),
@@ -36,10 +37,13 @@ shinyUI(
 			sliderInput( 'sd1', 'H0 standard Deviation', value = 1, min = 0.5, max = 5, step = 0.05 ),
 			sliderInput( 'sd2', 'H1 Standard Deviation', value = 1, min = 0.5, max = 5, step = 0.05 ),
 
-			submitButton('Submit')
-			# another type of button - le action button, its a bit less 'special', you can make actions on server be dependent
-			# on this button
-			# actionButton('goButton', 'Go!')
+			submitButton('Submit'),
+
+			p('   '),
+			p('   '),
+			p('In case any poor soul, God bless him, will have courage to look through this incredible mess that is the
+			code of this project, the link to the repo is :'),
+			p('https://github.com/pglushkov/DevelopingDataProducts_CourseProject')
 		),
 
 		mainPanel(
